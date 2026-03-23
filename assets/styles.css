@@ -751,6 +751,101 @@ input:focus, select:focus{
   }
 }
 
+@media (max-width: 520px){
+  .container{
+    width: calc(100% - 20px);
+  }
+  .header-inner{
+    flex-wrap: wrap;
+  }
+  .brand{
+    width: 100%;
+  }
+  .brand-tagline{
+    font-size: 12px;
+  }
+  .nav{
+    width: 100%;
+    justify-content: space-between;
+  }
+  .nav a{
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+  .hero{
+    padding: 20px 0 18px;
+  }
+  .hero-copy,
+  .hero-card,
+  .controls,
+  .card,
+  .contact-card,
+  .empty{
+    border-radius: 18px;
+  }
+  .hero-copy,
+  .hero-card,
+  .controls,
+  .contact-card,
+  .card{
+    padding: 16px;
+  }
+  .mini-row{
+    grid-template-columns: 1fr 1fr .7fr;
+    gap: 8px;
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  .card-media{
+    width: 104px;
+    height: 104px;
+    margin-bottom: 12px;
+  }
+  .card h3{
+    font-size: 16px;
+  }
+  .results-meta{
+    text-align: center;
+  }
+}
+
+@media (max-width: 380px){
+  .brand-mark{
+    width: 40px;
+    height: 40px;
+  }
+  .brand-name{
+    font-size: 15px;
+  }
+  .brand-tagline{
+    display: none;
+  }
+  h1{
+    font-size: 26px;
+  }
+  .lead{
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .nav{
+    padding: 4px;
+  }
+  .nav a{
+    padding: 9px 6px;
+    font-size: 11px;
+  }
+  .card-media{
+    width: 96px;
+    height: 96px;
+  }
+  .badge{
+    font-size: 11px;
+    padding: 6px 9px;
+  }
+}
+
 @media (hover: none){
   .card:hover{
     transform: none;
