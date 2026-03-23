@@ -656,11 +656,46 @@ input:focus, select:focus{
   .container{
     width: calc(100% - 24px);
   }
+  .site-header{
+    background: rgba(248,244,237,.96);
+  }
   .header-inner{
     padding: 12px 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .brand{
+    min-width: 0;
+    flex: 1 1 auto;
   }
   .nav{
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    flex: 0 0 auto;
+    border-radius: 999px;
+    gap: 6px;
+    padding: 6px;
+    background: #ffffff;
+    border: 1px solid rgba(154,52,18,.14);
+    box-shadow: 0 12px 24px rgba(56,36,18,.08);
+  }
+  .nav a{
+    width: auto;
+    text-align: center;
+    padding: 10px 12px;
+    background: transparent;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 700;
+    border: 0;
+  }
+  .nav a:hover{
+    background: rgba(154,52,18,.08);
+    color: var(--text);
   }
   .hero-copy,
   .hero-card,
