@@ -700,7 +700,6 @@ input:focus, select:focus{
   .hero-copy,
   .hero-card,
   .controls,
-  .card,
   .contact-card,
   .empty{
     border-radius: 20px;
@@ -731,15 +730,46 @@ input:focus, select:focus{
     flex-direction: column;
     align-items: stretch;
   }
+  .grid{
+    gap: 12px;
+  }
+  .card{
+    grid-column: span 6;
+    padding: 14px;
+    min-width: 0;
+  }
+  .card-media{
+    width: 96px;
+    height: 96px;
+    margin-bottom: 10px;
+  }
   .card-top{
     flex-direction: column;
     align-items: start;
+    gap: 8px;
+  }
+  .card h3{
+    font-size: 15px;
+    line-height: 1.2;
+  }
+  .card-sub{
+    font-size: 11px;
   }
   .badge{
     white-space: normal;
+    font-size: 11px;
+    padding: 6px 9px;
   }
   .kv{
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .kv-item{
+    padding: 10px;
+  }
+  .kv-item:last-child{
+    grid-column: 1 / -1;
   }
   .contact-row{
     grid-template-columns: 1fr;
@@ -836,9 +866,18 @@ input:focus, select:focus{
     padding: 9px 6px;
     font-size: 11px;
   }
+  .card{
+    grid-column: span 12;
+  }
   .card-media{
     width: 96px;
     height: 96px;
+  }
+  .kv{
+    grid-template-columns: 1fr;
+  }
+  .kv-item:last-child{
+    grid-column: auto;
   }
   .badge{
     font-size: 11px;
