@@ -78,6 +78,42 @@
             <button id="cartClearBtn" class="btn small ghost cart-clear-btn" type="button" hidden>
               Clear cart
             </button>
+
+            <div class="order-form-block">
+              <div class="section-kicker">Customer details</div>
+              <h3 class="order-form-title">Complete your order</h3>
+
+              <form id="orderForm" class="order-form" novalidate>
+                <label class="control">
+                  <span class="control-label">Customer name</span>
+                  <input id="customerName" name="customerName" type="text" placeholder="Enter customer name" />
+                  <span id="nameError" class="field-error" hidden>Please enter the customer name.</span>
+                </label>
+
+                <label class="control">
+                  <span class="control-label">Phone number</span>
+                  <input id="customerPhone" name="customerPhone" type="tel" inputmode="numeric" placeholder="Enter 10-digit phone number" />
+                  <span id="phoneError" class="field-error" hidden>Please enter a valid 10-digit phone number.</span>
+                </label>
+
+                <label class="control">
+                  <span class="control-label">Address</span>
+                  <textarea id="customerAddress" name="customerAddress" rows="3" placeholder="Enter delivery address"></textarea>
+                  <span id="addressError" class="field-error" hidden>Please enter the address.</span>
+                </label>
+
+                <label class="control">
+                  <span class="control-label">Optional note</span>
+                  <textarea id="customerNote" name="customerNote" rows="2" placeholder="Any note for the order"></textarea>
+                </label>
+
+                <div id="cartError" class="form-message" hidden>Add products before placing the order.</div>
+
+                <button id="placeOrderBtn" class="btn primary" type="submit">
+                  Place Order on WhatsApp
+                </button>
+              </form>
+            </div>
           </section>
         </div>
       </section>

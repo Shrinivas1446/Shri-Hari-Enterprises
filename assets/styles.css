@@ -381,8 +381,22 @@ input, select{
   font: inherit;
   font-size: 14px;
 }
+textarea{
+  width: 100%;
+  min-height: 90px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(64,44,22,.14);
+  background: #fffdfa;
+  color: var(--text);
+  outline: none;
+  font: inherit;
+  font-size: 14px;
+  resize: vertical;
+}
 input::placeholder{ color: #9b8e81; }
-input:focus, select:focus{
+textarea::placeholder{ color: #9b8e81; }
+input:focus, select:focus, textarea:focus{
   border-color: rgba(154,52,18,.45);
   box-shadow: 0 0 0 4px rgba(154,52,18,.12);
 }
@@ -595,6 +609,33 @@ input:focus, select:focus{
 .cart-clear-btn{
   width: 100%;
   margin-top: 10px;
+}
+.order-form-block{
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(64,44,22,.08);
+}
+.order-form-title{
+  margin: 10px 0 12px;
+  font-size: 18px;
+  letter-spacing: -.02em;
+}
+.order-form{
+  display: grid;
+  gap: 12px;
+}
+.field-error{
+  color: #b42318;
+  font-size: 12px;
+  font-weight: 700;
+}
+.form-message{
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #fff1ef;
+  color: #b42318;
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .card{

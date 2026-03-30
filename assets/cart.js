@@ -7,9 +7,19 @@ const els = {
   cartItemCount: document.getElementById("cartItemCount"),
   cartSubtotal: document.getElementById("cartSubtotal"),
   cartClearBtn: document.getElementById("cartClearBtn"),
+  orderForm: document.getElementById("orderForm"),
+  customerName: document.getElementById("customerName"),
+  customerPhone: document.getElementById("customerPhone"),
+  customerAddress: document.getElementById("customerAddress"),
+  customerNote: document.getElementById("customerNote"),
+  nameError: document.getElementById("nameError"),
+  phoneError: document.getElementById("phoneError"),
+  addressError: document.getElementById("addressError"),
+  cartError: document.getElementById("cartError"),
 };
 
 let cart = [];
+const WHATSAPP_NUMBER = "919095477477";
 
 function formatInr(n) {
   const value = typeof n === "number" && Number.isFinite(n) ? n : 0;
@@ -70,6 +80,7 @@ function renderCart() {
   els.cartClearBtn.disabled = cart.length === 0;
   els.cartClearBtn.hidden = cart.length === 0;
   els.cartClearBtn.setAttribute("aria-disabled", cart.length === 0 ? "true" : "false");
+  if (els.cartError) els.cartError.hidden = cart.length > 0;
 
   if (!cart.length) return;
 
@@ -169,8 +180,74 @@ function clearCart() {
   renderCart();
 }
 
+function setFieldError(el, shouldShow) {
+  if (!el) return;
+  el.hidden = !shouldShow;
+}
+
+function isValidPhone(value) {
+  return /^\d{10}$/.test(value);
+}
+
+function buildWhatsAppMessage() {
+  const name = els.customerName.value.trim();
+  const phone = els.customerPhone.value.trim();
+  const address = els.customerAddress.value.trim();
+  const note = els.customerNote.value.trim();
+  const { subtotal } = cartTotals();
+
+  const lines = [
+    "Hello, I want to place an order.",
+    "",
+    `Name: ${name}`,
+    `Phone: ${phone}`,
+    `Address: ${address}`,
+    "",
+    "Products:",
+  ];
+
+  cart.forEach((item, index) => {
+    lines.push(`${index + 1}. ${item.name} - ${item.qty} x Rs.${formatInr(item.price)}`);
+  });
+
+  lines.push("");
+  lines.push(`Subtotal: Rs.${formatInr(subtotal)}`);
+
+  if (note) {
+    lines.push("");
+    lines.push(`Note: ${note}`);
+  }
+
+  return lines.join("\n");
+}
+
+function handleOrderSubmit(event) {
+  event.preventDefault();
+
+  const name = els.customerName.value.trim();
+  const phone = els.customerPhone.value.trim();
+  const address = els.customerAddress.value.trim();
+
+  const nameInvalid = name === "";
+  const phoneInvalid = !isValidPhone(phone);
+  const addressInvalid = address === "";
+  const cartInvalid = cart.length === 0;
+
+  setFieldError(els.nameError, nameInvalid);
+  setFieldError(els.phoneError, phoneInvalid);
+  setFieldError(els.addressError, addressInvalid);
+  if (els.cartError) els.cartError.hidden = !cartInvalid;
+
+  if (nameInvalid || phoneInvalid || addressInvalid || cartInvalid) return;
+
+  const message = buildWhatsAppMessage();
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+}
+
 function wireEvents() {
   els.cartClearBtn?.addEventListener("click", clearCart);
+  els.orderForm?.addEventListener("submit", handleOrderSubmit);
 }
 
 (function init() {
