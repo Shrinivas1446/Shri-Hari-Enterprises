@@ -134,7 +134,38 @@
             <button id="clearBtn" class="btn small ghost" type="button">Clear</button>
           </div>
 
-          <div id="catalogGrid" class="grid" aria-label="Product results"></div>
+          <div class="catalog-layout">
+            <div id="catalogGrid" class="grid" aria-label="Product results"></div>
+
+            <aside class="cart-panel" aria-labelledby="cartTitle">
+              <div class="cart-head">
+                <div>
+                  <div class="section-kicker">Cart</div>
+                  <h3 id="cartTitle">Selected products</h3>
+                </div>
+                <button id="cartClearBtn" class="btn small ghost" type="button">Clear cart</button>
+              </div>
+
+              <div id="cartMeta" class="cart-meta" aria-live="polite">0 items</div>
+
+              <div id="cartItems" class="cart-items"></div>
+
+              <div id="cartEmpty" class="cart-empty">
+                Add products to your cart to start an order.
+              </div>
+
+              <div class="cart-summary">
+                <div class="cart-summary-row">
+                  <span>Total items</span>
+                  <strong id="cartItemCount">0</strong>
+                </div>
+                <div class="cart-summary-row">
+                  <span>Subtotal</span>
+                  <strong id="cartSubtotal">₹ 0</strong>
+                </div>
+              </div>
+            </aside>
+          </div>
 
           <div id="emptyState" class="empty" hidden>
             <div class="empty-title">No results</div>
