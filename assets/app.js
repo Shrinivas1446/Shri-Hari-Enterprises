@@ -95,12 +95,14 @@ function renderCart() {
   els.cartItems.innerHTML = "";
 
   const { items, subtotal } = cartTotals();
-  els.cartMeta.textContent = `${items} item${items === 1 ? "" : "s"} in cart`;
+  els.cartMeta.textContent = items ? `${items} item${items === 1 ? "" : "s"} selected` : "No products selected";
   els.cartItemCount.textContent = String(items);
   els.cartSubtotal.textContent = `₹ ${formatInr(subtotal)}`;
   els.cartEmpty.hidden = cart.length > 0;
+  els.cartItems.hidden = cart.length === 0;
   els.cartClearBtn.disabled = cart.length === 0;
   els.cartClearBtn.setAttribute("aria-disabled", cart.length === 0 ? "true" : "false");
+  els.cartClearBtn.hidden = cart.length === 0;
 
   if (!cart.length) return;
 
@@ -405,8 +407,10 @@ function kvItem(k, v, extraClass = "") {
 function update() {
   const state = getState();
   const filtered = applyFilters(allProducts, state);
+  const hasActiveFilters = state.q !== "" || state.brand !== "" || state.gst !== "";
 
   els.resultsMeta.textContent = `${filtered.length} item${filtered.length === 1 ? "" : "s"} shown`;
+  els.clearBtn.hidden = !hasActiveFilters;
   render(filtered);
 }
 
