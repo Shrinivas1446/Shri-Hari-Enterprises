@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Shri Hari Enterprises order summary for selected frozen products."
+    />
+    <title>Shri Hari Enterprises | Order Summary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/styles.css?v=20260323-1" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">SH</div>
+          <div class="brand-text">
+            <div class="brand-name">Shri Hari Enterprises</div>
+            <div class="brand-tagline">Frozen foods & ingredients</div>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Primary">
+          <a href="index.html#home">Home</a>
+          <a href="index.html#catalog">Catalog</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="order-page">
+      <section class="catalog">
+        <div class="container order-page-grid">
+          <div class="order-page-copy">
+            <div class="section-kicker">Order</div>
+            <h1 class="order-page-title">Review your selected products</h1>
+            <p class="lead">
+              Check your items here before we add the customer details and WhatsApp order step.
+            </p>
+            <div class="cta-row">
+              <a class="btn" href="index.html#catalog">Continue browsing</a>
+            </div>
+          </div>
+
+          <section class="cart-panel cart-page-panel" aria-labelledby="cartTitle">
+            <div class="cart-head">
+              <div>
+                <div class="section-kicker">Order summary</div>
+                <h2 id="cartTitle">Selected products</h2>
+              </div>
+            </div>
+
+            <div id="cartMeta" class="cart-meta" aria-live="polite">No products selected</div>
+            <div id="cartItems" class="cart-items" hidden></div>
+
+            <div id="cartEmpty" class="cart-empty">
+              No products added yet. Go back to the catalog and add items to build the order.
+            </div>
+
+            <div class="cart-summary">
+              <div class="cart-summary-row">
+                <span>Total items</span>
+                <strong id="cartItemCount">0</strong>
+              </div>
+              <div class="cart-summary-row">
+                <span>Subtotal</span>
+                <strong id="cartSubtotal">₹ 0</strong>
+              </div>
+            </div>
+
+            <button id="cartClearBtn" class="btn small ghost cart-clear-btn" type="button" hidden>
+              Clear cart
+            </button>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <script src="assets/cart.js?v=20260323-1" defer></script>
+  </body>
+</html>

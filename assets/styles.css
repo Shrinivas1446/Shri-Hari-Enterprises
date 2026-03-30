@@ -363,11 +363,11 @@ input:focus, select:focus{
   gap: 12px;
   margin: 10px 0 10px;
 }
-.catalog-layout{
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 264px;
+.catalog-actions{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   gap: 14px;
-  align-items: start;
 }
 .results-meta{
   color: var(--muted);
@@ -387,12 +387,71 @@ input:focus, select:focus{
 .filter-reset-btn:hover{
   text-decoration: underline;
 }
+.order-shortcut{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 38px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(64,44,22,.12);
+  background: rgba(255,255,255,.78);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 800;
+  box-shadow: var(--shadow-soft);
+}
+.order-shortcut:hover{
+  text-decoration: none;
+  background: #fff8f3;
+}
+.order-shortcut[data-empty="true"]{
+  color: var(--muted);
+}
+.order-count-badge{
+  min-width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: rgba(154,52,18,.1);
+  color: var(--brand-strong);
+  font-size: 12px;
+  font-weight: 800;
+}
 
 .grid{
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 16px;
   padding-bottom: 22px;
+}
+
+.order-page{
+  padding: 26px 0 52px;
+}
+.order-page-grid{
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(300px, .9fr);
+  gap: 22px;
+  align-items: start;
+}
+.order-page-copy{
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.order-page-title{
+  margin: 14px 0 12px;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.02;
+  letter-spacing: -.04em;
+}
+.cart-page-panel{
+  position: static;
 }
 
 .cart-panel{
@@ -801,12 +860,11 @@ input:focus, select:focus{
   .contact-grid{
     grid-template-columns: 1fr;
   }
-  .catalog-layout{
+  .order-page-grid{
     grid-template-columns: 1fr;
   }
   .cart-panel{
     position: static;
-    order: -1;
     padding: 18px;
   }
   .hero-points{
@@ -901,6 +959,9 @@ input:focus, select:focus{
     flex-direction: column;
     align-items: stretch;
   }
+  .catalog-actions{
+    justify-content: space-between;
+  }
   .cart-head,
   .cart-item-actions{
     flex-direction: column;
@@ -988,6 +1049,14 @@ input:focus, select:focus{
   }
   .hero{
     padding: 20px 0 18px;
+  }
+  .catalog-actions{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .order-shortcut{
+    justify-content: space-between;
   }
   .hero-copy,
   .hero-card,

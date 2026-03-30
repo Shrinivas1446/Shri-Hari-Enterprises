@@ -104,44 +104,16 @@
 
           <div class="catalog-bar">
             <div id="resultsMeta" class="results-meta" aria-live="polite"></div>
-            <button id="clearBtn" class="filter-reset-btn" type="button" hidden>Reset filters</button>
+            <div class="catalog-actions">
+              <button id="clearBtn" class="filter-reset-btn" type="button" hidden>Reset filters</button>
+              <a id="orderPageBtn" class="order-shortcut" href="cart.html">
+                <span>Order summary</span>
+                <span id="orderCountBadge" class="order-count-badge">0</span>
+              </a>
+            </div>
           </div>
 
-          <div class="catalog-layout">
-            <div id="catalogGrid" class="grid" aria-label="Product results"></div>
-
-            <aside class="cart-panel" aria-labelledby="cartTitle">
-              <div class="cart-head">
-                <div>
-                  <div class="section-kicker">Order</div>
-                  <h3 id="cartTitle">Order summary</h3>
-                </div>
-              </div>
-
-              <div id="cartMeta" class="cart-meta" aria-live="polite">0 items</div>
-
-              <div id="cartItems" class="cart-items"></div>
-
-              <div id="cartEmpty" class="cart-empty">
-                Add products to build a simple order summary for your customer.
-              </div>
-
-              <div class="cart-summary">
-                <div class="cart-summary-row">
-                  <span>Total items</span>
-                  <strong id="cartItemCount">0</strong>
-                </div>
-                <div class="cart-summary-row">
-                  <span>Subtotal</span>
-                  <strong id="cartSubtotal">₹ 0</strong>
-                </div>
-              </div>
-
-              <button id="cartClearBtn" class="btn small ghost cart-clear-btn" type="button">
-                Clear cart
-              </button>
-            </aside>
-          </div>
+          <div id="catalogGrid" class="grid" aria-label="Product results"></div>
 
           <div id="emptyState" class="empty" hidden>
             <div class="empty-title">No results</div>
